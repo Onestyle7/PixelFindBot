@@ -18,6 +18,9 @@ namespace PixelFindBot
 
         [DllImport("user32.dll")]
         private static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint dwData, uint dwExtraInf);
+
+        [DllImport("user32.dll")]
+        private static extern bool SetCursorPos(int x, int y);
         public MainWindow()
         {
             InitializeComponent();
@@ -30,6 +33,7 @@ namespace PixelFindBot
         }
         private void DoubleClickAtPosition(int posX, int posY)
         {
+            SetCursorPos(posX, posY);
             Click();
             System.Threading.Thread.Sleep(250);
             Click();
@@ -56,16 +60,16 @@ namespace PixelFindBot
                 {
                     // Pobranie aktualnego koloru pixela
                     Color currentPixelColor = bitmap.GetPixel(x, y);
-                    
-                    if(desiredPixelColor == currentPixelColor)
+                    throw new ArgumentOutOfRangeException("Taki kolor nie istnieje na ekranie");
+                    if (desiredPixelColor == currentPixelColor)
                     {
                         MessageBox.Show(String.Format("Found Pixel at {0}, {1} - Now set mouse cursor", x,y));
-                       
+
+                        DoubleClickAtPosition(x, y);
                         return true;
                     }
                 }
             }
-
             return false;
         }
     }
