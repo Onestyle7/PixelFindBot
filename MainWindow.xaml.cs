@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Drawing; // Color, Bitmap, Graphics
+using System.Windows.Forms; // Screen height and width
+using MessageBox = System.Windows.MessageBox; // Use message box of wpf
 
 namespace PixelFindBot
 {
@@ -26,7 +17,13 @@ namespace PixelFindBot
         }
         private void OnButtonSearchPixelClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Hello World");
+            string inputHexColorCode = TextBoxHexColor.Text;
+            MessageBox.Show(inputHexColorCode);
+        }
+        private bool SearchPixel(string hexCode)
+        {
+            Bitmap bitmap = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+            return false;
         }
     }
 }
