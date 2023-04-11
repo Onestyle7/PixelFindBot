@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PixelFindBot"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="PixelBot" Height="200" Width="300" ResizeMode="NoResize" Background="#FF2C2C2C">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="16*"/>
+            <RowDefinition Height="113*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="17*"/>
+        </Grid.ColumnDefinitions>
+        <Button Name="ButtonSearchPixel" Click="OnButtonSearchPixelClick" Content="Search Pixal" HorizontalAlignment="Left"
+                Margin="5,31,0,0" VerticalAlignment="Top" Width="200" Height="30" Grid.Column="1" Grid.Row="2"/>
+        <TextBox Name="TextBoxHexColor" HorizontalAlignment="Left" Margin="5,52,0,0" TextWrapping="Wrap" Text="#ffffff"
+                 VerticalAlignment="Top" Width="200" Height="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Column="1" Grid.RowSpan="3"/>
     </Grid>
 </Window>

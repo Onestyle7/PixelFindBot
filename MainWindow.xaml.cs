@@ -24,5 +24,9 @@ namespace PixelFindBot
         {
             InitializeComponent();
         }
+        private void OnButtonSearchPixelClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Hello World");
+        }
     }
 }
